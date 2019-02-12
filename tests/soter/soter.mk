@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-THEMIS_TEST_SRC = $(wildcard tests/themis/*.c)
-THEMIS_TEST_OBJ = $(patsubst $(TEST_SRC_PATH)/%.c,$(TEST_OBJ_PATH)/%.o, $(THEMIS_TEST_SRC))
+SOTER_TEST_SRC = $(wildcard tests/soter/*.c)
+SOTER_TEST_OBJ = $(patsubst $(TEST_SRC_PATH)/%.c,$(TEST_OBJ_PATH)/%.o, $(SOTER_TEST_SRC))
