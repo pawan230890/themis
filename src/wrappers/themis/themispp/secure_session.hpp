@@ -48,6 +48,9 @@ namespace themispp{
   inline ssize_t receive_callback(uint8_t* data, size_t data_length, void *user_data){
     try{
       std::vector<uint8_t> received_data=((secure_session_callback_interface_t*)user_data)->receive();
+      if(received_data.size()>data_length){
+        return -1;
+      }
       memcpy(data, &received_data[0], received_data.size());
       return ssize_t(received_data.size());
     }catch(...){}
