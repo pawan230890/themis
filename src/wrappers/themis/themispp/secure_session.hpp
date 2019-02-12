@@ -29,8 +29,13 @@ namespace themispp{
   public:
     typedef std::vector<uint8_t> data_t;
     virtual const data_t get_pub_key_by_id(const data_t& id)=0;
-    virtual void send(const data_t& data){throw themispp::exception_t("Secure Session failed sending, send callback not set");}
-    virtual const data_t& receive(){throw themispp::exception_t("Secure Session failed receiving, receive callback not set");}
+    virtual void send(const data_t& data){
+      UNUSED(data);
+      throw themispp::exception_t("Secure Session failed sending, send callback not set");
+    }
+    virtual const data_t& receive(){
+      throw themispp::exception_t("Secure Session failed receiving, receive callback not set");
+    }
   };
 
   inline ssize_t send_callback(const uint8_t* data, size_t data_length, void *user_data){
